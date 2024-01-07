@@ -43,8 +43,8 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojs
             fillOpacity: 1,
             fillColor: getColor(feature.geometry.coordinates[2]),
             color: "#000000",
-            radius: getRadius(feature.properties.map),
-            stroke: true,
+            radius: getRadius(feature.properties.mag),
+            stroke: true
             weight: 0.5
         };
     }
@@ -98,7 +98,7 @@ earthquakes.addTo(map);
         position: "bottomright"
     });
     legend.onAdd= function(){
-        var div = L.DomUtil.create("div", "info Legend");
+        var div = L.DomUtil.create("div", "info legend");
         var magnitudes = [-10, 10, 30, 50, 70, 90];
         var colors = [
             "#98ee00",
